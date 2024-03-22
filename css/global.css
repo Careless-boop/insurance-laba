@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=BenchNine&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=BenchNine:wght@300;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --header-background-color: rgb(39, 22, 11);
+  --hero-background-color: rgb(58, 33, 17);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --index-header-alternative-background-color: #c5a35c;
+  --alternative-background-color: #212020;
+  --text-color: white;
+  --alternative-text-color: black;
+  --background-color: #1b191a;
+  --alternative-background-color: rgba(44, 43, 44, 0.8);
+  --title-color: #c5a35c;
+  --button-highlight-color: #c5a35c;
+  --alternative-button-highlight-color: rgb(63, 50, 41);
+  --description-text-color: #d0c8b9;
+  --faq-divider-color: #4d4d4d;
+  --blog-border-color: rgba(33, 39, 54, 0.12);
+  --form-background-color: #242424;
+  --background-color-artticle: #232323;
+  --faq-border-line-color: #4d4d4d;
+  --blog-post-border-color: black;
+  --button-color: #000;
+  --background-color-seeds: rgb(63, 50, 41);
+  --background-color-quality: rgba(49, 53, 35, 0.95);
+  --text-color-light: #fff;
+  scroll-behavior: smooth;
+  font-family: "Roboto", sans-serif;
+  color: var(--text-color);
+}
+img {
+  display: block;
+  width: 100%;
+}
+.button,
+.button-highlight,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "BenchNine", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--title-color);
+}
+.index__titles-underscore {
+  height: 32px;
+  max-width: 485px;
+}
+a {
+  color: inherit;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+.button {
+  border: 2px solid var(--text-color);
+  padding: 10px;
+  font-weight: bold;
+}
+.button:hover {
+  background-color: var(--text-color);
+  color: var(--alternative-text-color);
+  text-decoration: none;
+}
+.button-highlight {
+  background-color: var(--button-highlight-color);
+  padding: 12px;
+  font-weight: bold;
+}
+.button-highlight:hover {
+  background-color: var(--alternative-button-highlight-color);
+  text-decoration: none;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+.fixed {
+  width: 100%;
+  position: fixed;
+}
