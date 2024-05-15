@@ -6,6 +6,7 @@
     <title>HappyWay</title>
     <link rel="stylesheet" href="css/index.css" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
     <header class="header">
@@ -71,9 +72,7 @@
           />
           <div class="about__content-info">
             <h2 class="about__title">ABOUT COMPANY</h2>
-            <h3 class="about__sub-title">
-              How it was done.
-            </h3>
+            <h3 class="about__sub-title">How it was done.</h3>
             <p class="about__text">
               In 2004, Maxim Hazha founded the insurance company HappyWay,
               believing in the importance of protecting people's lives and
@@ -249,6 +248,51 @@
           </div>
         </div>
       </section>
+      <section class="products" id="products">
+        <div class="products__container container">
+          <h2 class="products__title">PRODUCTS</h2>
+          <p class="products__text">Select a product to quote:</p>
+          <div class="products__list">
+            <div
+              class="product"
+              v-for="product in products"
+              :id="product.id"
+              @click="addToCart(product)"
+            >
+              <img
+                class="product__img"
+                :src="'img/'+product.img"
+                :alt="product.name"
+              />
+              <div class="product__details">
+                <h3 class="product__name">
+                  {{product.name}}<span class="product__span">></span>
+                </h3>
+                <p class="product__desc">{{product.desc}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="products__show" v-if="selectedProductsCount>0">
+            <div class="products__show-text" @click="isPopupOpen=true">
+              Find an agent
+              <p class="products__show-total">{{selectedProductsCount}}</p>
+            </div>
+          </div>
+          <div class="products__modal" v-if="isPopupOpen">
+            <div class="modal__content">
+              <button class="modal__close" @click="isPopupOpen=false">&times;</button>
+              <div class="modal__list">
+                <div class="modal__item" v-for="product in selectedProductsDetails">
+                  <h3 class="modal__item-name">{{product.name}}</h3>
+                  <p class="modal__item-desc">{{product.desc}}</p>
+                  <button class="modal__item-remove" @click="removeFromCart(index)">Remove</button>
+                </div>
+              </div>
+              <div class="modal__find">Find</div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="contact" id="contact">
         <div class="main-area">
           <h2 class="contact__title">Contact us now</h2>
@@ -301,5 +345,6 @@
         <p>All rights Reserved</p>
       </div>
     </footer>
+    <script src="js/products.js"></script>
   </body>
 </html>
