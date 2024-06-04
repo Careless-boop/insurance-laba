@@ -73,12 +73,19 @@ const appConfig = {
       }
     });
 
-    onMounted(() => {
-      console.log("Vue is mounted");
+    onMounted(async () => {
       const storedProducts = localStorage.getItem("selectedProducts");
       if (storedProducts) {
         selectedProducts.value = JSON.parse(storedProducts);
       }
+      try {
+        const response = await fetch("http://localhost:8000/products");
+        const data = await response.json();
+        products.value = data;
+      } catch (err) {
+        console.error("Error fetching pricing data:", err);
+      }
+      console.log("Vue is mounted");
     });
 
     return {
